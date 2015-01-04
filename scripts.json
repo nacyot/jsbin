@@ -7,6 +7,7 @@
     "/js/components/jquery.tablesorter/js/jquery.tablesorter.min.js",
     "/js/components/jquery.tablesorter/js/jquery.tablesorter.widgets.min.js",
     "/js/components/list.js/dist/list.min.js",
+    "/js/components/list.pagination.js/dist/list.pagination.min.js",
     "/js/components/vex/js/vex.combined.min.js",
     "/js/vendor/pretty-date.js",
     "/js/vendor/polyfills.js",

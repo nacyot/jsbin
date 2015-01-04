@@ -5,7 +5,8 @@
     "jquery-cookie": "*",
     "vex": "*",
     "jquery.tablesorter": "~2.18.4",
-    "list.js": "*"
+    "list.js": "*",
+    "list.pagination.js": "*"
   },
   "devDependencies": {
   }

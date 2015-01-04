@@ -64,7 +64,9 @@
                 'revision',
                 'last_updated',
                 'title'
-              ]
+              ],
+              page: 50,
+              plugins: [ ListPagination({}) ] 
             });
             
           })();
