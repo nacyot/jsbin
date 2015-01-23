@@ -27,6 +27,7 @@
     "polymaps": "*",
     "p5js": "*",
     "inlet": "enjalot/Inlet"
+    "genie": "*"
   }
 }
 
