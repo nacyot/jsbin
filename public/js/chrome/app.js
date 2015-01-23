@@ -3,11 +3,11 @@
 var helper = require('../helper/global_helper');
 var analytics = require('../chrome/analytics');
 var editors = require('../editors/panels').panels;
-var Gist = require('../chrome/gist')
+var Gist = require('../chrome/gist');
 
-(function(jsbin){
+(function(){
   'use strict';
-  
+
   // if a gist has been requested, lazy load the gist library and plug it in
   if (/gist\/.*/.test(window.location.pathname)) {
     window.editors = editors; // needs to be global when the callback triggers to set the content
@@ -54,6 +54,5 @@ var Gist = require('../chrome/gist')
   if (jsbin.embed) {
     analytics.embed();
   }
-  
-})(jsbin);
+})();
 
