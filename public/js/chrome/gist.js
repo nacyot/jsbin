@@ -4,8 +4,6 @@ var helper = require('../helper/global_helper');
 var processors = require('../processors/processor');
 
 module.exports = (function () { // jshint ignore:line
-  'use strict';
-
   // Only allow gist import/export if CORS is supported
   var CORS = !!('withCredentials' in new XMLHttpRequest() ||
                 typeof XDomainRequest !== 'undefined');
@@ -20,7 +18,7 @@ module.exports = (function () { // jshint ignore:line
         token = '';
 
     gist.code = {};
-    
+
     if (jsbin.user && jsbin.user.github_token) { // jshint ignore:line
       token = '?access_token=' + jsbin.user.github_token; // jshint ignore:line
     }
