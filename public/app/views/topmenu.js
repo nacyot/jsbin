@@ -5,6 +5,12 @@ var Navigation = require('../../js/chrome/navigation');
 var TopmenuView = (function(){
   'use strict';
 
+  var clickToggleVisibility = function(event){
+    event.preventDefault();
+
+    Navigation.toggleVisibility(event);
+  };
+  
   var clickDeleteBin = function(event){
     event.preventDefault();
 
@@ -28,10 +34,12 @@ var TopmenuView = (function(){
     el: '#topmenu',
     events: {
       'click a.deletebin': 'deleteBin',
-      'click a.renamebin': 'renameBin'
+      'click a.renamebin': 'renameBin',
+      'click a.visibilityToggle': 'ToggleVisibility'
     },
     deleteBin: clickDeleteBin,
-    renameBin: clickRenameBin
+    renameBin: clickRenameBin,
+    ToggleVisibility: clickToggleVisibility
   });
 })();
 

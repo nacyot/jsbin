@@ -22,7 +22,6 @@ module.exports = (function(){
   var $startingpoint = $('a.startingpoint');
   var $privateButton = $('#control a.visibilityToggle#private');
   var $publicButton = $('#control a.visibilityToggle#public');
-  var $visibilityButtons = $('#control a.visibilityToggle');
   var $dropdownLinks = $('.dropdownmenu a, .dropdownmenu .button');
   var $dropdownButtons = $('.button-dropdown, .button-open');
   var $lockrevision = $('div.lockrevision');
@@ -398,45 +397,42 @@ module.exports = (function(){
     // });
   };
 
-  var setup_visibility_button_event = function(){
-    $visibilityButtons.click(function(event) {
-      event.preventDefault();
 
-      var visibility = $(this).data('vis');
-      var infocard = $('#infocard');
+  var toggleVisibility = function(event){
+    var $visibilityButtons = $(event.target);
+    var visibility = $visibilityButtons.data('vis');
+    var infocard = $('#infocard');
 
-      $.ajax({
-        url: jsbin.getURL({ withRevision: true }) + '/' + visibility,
-        type: 'post',
-        success: function (data) {
+    $.ajax({
+      url: jsbin.getURL({ withRevision: true }) + '/' + visibility,
+      type: 'post',
+      success: function (data) {
 
-          $document.trigger('tip', {
-            type: 'notification',
-            content: 'This bin is now ' + visibility,
-            autohide: 6000
-          });
+        helper.$document.trigger('tip', {
+          type: 'notification',
+          content: 'This bin is now ' + visibility,
+          autohide: 6000
+        });
 
-          $visibilityButtons.css('display', 'none');
+        $visibilityButtons.css('display', 'none');
 
-          if (visibility === 'public') {
-            $privateButton.css('display', 'block');
+        if (visibility === 'public') {
+          $privateButton.css('display', 'block');
 
-            infocard.addClass('public');
-            infocard.removeClass('private');
-            infocard.find('.visibility').text('public');
-          } else {
-            $publicButton.css('display', 'block');
+          infocard.addClass('public');
+          infocard.removeClass('private');
+          infocard.find('.visibility').text('public');
+        } else {
+          $publicButton.css('display', 'block');
 
-            infocard.addClass('private');
-            infocard.removeClass('public');
-            infocard.find('.visibility').text('private');
-          }
-
+          infocard.addClass('private');
+          infocard.removeClass('public');
+          infocard.find('.visibility').text('private');
         }
-      });
+      }
     });
   };
-
+  
   var setup_login_event = function(){
     $('form.login').closest('.menu').bind('close', function () {
       $(this).find('.loginFeedback').empty().hide();
@@ -844,7 +840,6 @@ module.exports = (function(){
     setup_showurls_event();
     setup_code_dblclick_event();
     setup_createnew_event();
-    setup_visibility_button_event();
     setup_login_event();
     setup_lostpass_event();
     warning_enablejs_uncheck();
@@ -867,6 +862,7 @@ module.exports = (function(){
   setup();
   
   return {
+    toggleVisibility: toggleVisibility,
     renameBin: renameBin,
     deleteBin: deleteBin,
     add_description: add_description,
