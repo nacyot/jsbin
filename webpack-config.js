@@ -20,6 +20,9 @@ module.exports = {
       './public/js/render/render_live_preview.js',       // Library*
       './public/js/render/live.js',                      // Instant*
       './public/js/editors/keycontrol.js',               // Library-
+
+      './public/app/views/panelwrapper.js',
+
       './public/js/render/console.js',                   // Library*
       './public/js/processors/processor.js',             // Library*
       './public/js/editors/setup_code_mirror.js',        // Instant *
