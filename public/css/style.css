@@ -217,6 +217,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
            position: absolute;
            cursor: default;
            z-index: 4;
+           left: -28px !important;
          }
 
          .CodeMirror-lines {
